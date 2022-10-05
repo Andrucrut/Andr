@@ -13,7 +13,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     """
 
     new_word = []
-    ciphertext = ''
+    ciphertext = ""
     for i in plaintext:
         if ord(i) >= 65 and ord(i) <= 90:
             ciphertext= chr((((ord(i) - 65) + shift) % 26) + 65)
@@ -27,7 +27,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
 
 def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     new_word = []
-    new_letter = ''
+    new_letter = ""
     for i in ciphertext:
         if ord(i) >= 65 and ord(i) <= 90:
             new_letter = chr((((ord(i) - 65) - shift) % 26) + 65)

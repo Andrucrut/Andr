@@ -39,7 +39,7 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
         else:
             new_word.append(i)
     return "".join(new_word)
-=======
+
 def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     """
     Encrypts plaintext using a Caesar cipher.

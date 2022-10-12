@@ -3,7 +3,7 @@ import typing as tp
 
 
 def is_prime(n: int) -> bool:
-        """
+    """
     Tests to see if a number is prime.
     >>> is_prime(2)
     True
@@ -32,38 +32,49 @@ def gcd(a: int, b: int) -> int:
 
 
 def multiplicative_inverse(e: int, phi: int) -> int:
-     """
+    """
     Euclid's extended algorithm for finding the multiplicative
     inverse of two numbers.
     >>> multiplicative_inverse(7, 40)
     23
     """
-    def gcd_extended(a, b):
-        if a == 0:
-            return b, 0, 1
-        else:
-            d, y, x = gcd_extended(b % a, a)
-            return d, x - y * (b // a), y
 
-    d, x, y = gcd_extended(e, phi)
-    return x % phi
+    d = 0
+    while True:
+        if d * e % phi == 1:
+            return d
+        d += 1
 
 
-def generate_keypair(p: int, q: int) -> Tuple[Tuple[int, int], Tuple[int, int]]:
+def generate_keypair(p: int, q: int) -> tp.Tuple[tp.Tuple[int, int], tp.Tuple[int, int]]:
     if not (is_prime(p) and is_prime(q)):
         raise ValueError("Both numbers must be prime.")
     elif p == q:
         raise ValueError("p and q cannot be equal")
-    n = p * q
-    phi = (p - 1) * (q - 1)
 
+    n = p * q
+    # n = pq
+    # PUT YOUR CODE HERE
+
+    phi = (p - 1) * (q - 1)
+    # phi = (p-1)(q-1)
+    # PUT YOUR CODE HERE
+
+    # Choose an integer 1e such hat e and phi(n) are coprime
     e = random.randrange(1, phi)
+
+    # Use Euclid's Algorithm to verify that e and phi(n) are coprime
     g = gcd(e, phi)
     while g != 1:
         e = random.randrange(1, phi)
         g = gcd(e, phi)
+
+    # Use Extended Euclid's Algorithm to generate the private key
     d = multiplicative_inverse(e, phi)
-    return (e, n), (d, n)
+
+    # Return public and private keypair
+    # Public key is (e, n) and private key is (d, n)
+    return ((e, n), (d, n))
 
 
 def encrypt(pk: tp.Tuple[int, int], plaintext: str) -> tp.List[int]:

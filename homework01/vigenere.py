@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     """
     Encrypts plaintext using a Vigenere cipher.
@@ -87,4 +86,3 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
             bukva = (ord(j) - ord(keyword[i]))
             plaintext += chr(bukva % 26 + 65)
     return plaintext
->>>>>>> Stashed changes

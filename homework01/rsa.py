@@ -42,7 +42,7 @@ def multiplicative_inverse(e: int, phi: int) -> int:
     # PUT YOUR CODE Here
     d = 0
     while True:
-        if d * e % phi ==1:
+        if d * e % phi == 1:
             return d
         d += 1
 
@@ -59,7 +59,7 @@ def generate_keypair(p: int, q: int) -> tp.Tuple[tp.Tuple[int, int], tp.Tuple[in
     # n = pq
     # PUT YOUR CODE HERE
 
-    phi = (p-1)*(q-1)
+    phi = (p-1) * (q-1)
     # phi = (p-1)(q-1)
     # PUT YOUR CODE HERE
 

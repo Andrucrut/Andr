@@ -11,7 +11,7 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     ''
     """
     new_word = []  # новое слово
-    ciphertext = ""  # новая буква
+    ciphertext = ''  # новая буква
     for i in plaintext:  # i буква
         if ord(i) >= 65 and ord(i) <= 90:  # от A до Z
             ciphertext = chr((((ord(i) - 65) + shift) % 26) + 65)  # %26 чтобы у нас послдний символ был тем что надо
@@ -21,12 +21,12 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
             new_word.append(ciphertext)
         else:
             new_word.append(i)
-    return "".join(new_word)  # возвращение в качестве строки
+    return ''.join(new_word)  # возвращение в качестве строки
 
 
 def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
     new_word = []
-    new_letter = ""
+    new_letter = ''
     for i in ciphertext:
         if ord(i) >= 65 and ord(i) <= 90:
             new_letter = chr((((ord(i) - 65) - shift) % 26) + 65)
@@ -36,4 +36,4 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
             new_word.append(new_letter)
         else:
             new_word.append(i)
-    return "".join(new_word)
+    return ''.join(new_word)

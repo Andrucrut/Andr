@@ -42,9 +42,9 @@ def multiplicative_inverse(e: int, phi: int) -> int:
     # PUT YOUR CODE Here
     d = 0
     while True:
-        if d* e % phi ==1:
+        if d * e % phi ==1:
             return d
-        d+=1
+        d += 1
 
 
 
@@ -55,7 +55,7 @@ def generate_keypair(p: int, q: int) -> tp.Tuple[tp.Tuple[int, int], tp.Tuple[in
     elif p == q:
         raise ValueError("p and q cannot be equal")
 
-    n = p*q
+    n = p * q
     # n = pq
     # PUT YOUR CODE HERE
 
@@ -94,7 +94,7 @@ def decrypt(pk: tp.Tuple[int, int], ciphertext: tp.List[int]) -> str:
     # Unpack the key into its components
     key, n = pk
     # Generate the plaintext based on the ciphertext and key using a^b mod m
-    plain = [chr((char ** key) % n) for char in ciphertext]
+    plain = [chr((char**key) % n) for char in ciphertext]
     # Return the array of bytes as a string
     return "".join(plain)
 

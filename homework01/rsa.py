@@ -1,5 +1,18 @@
 import random
-from typing import Tuple
+import typing as tp
+
+
+def is_prime(n: int) -> bool:
+    return n > 1 and all(n % i != 0 for i in range(2, int(n**0.5) + 1))
+
+
+def gcd(a: int, b: int) -> int:
+    while a != 0 and b != 0:
+        if a > b:
+            a = a % b
+        else:
+            b = b % a
+    return a + b
 
 
 def multiplicative_inverse(e: int, phi: int) -> int:
@@ -12,19 +25,6 @@ def multiplicative_inverse(e: int, phi: int) -> int:
 
     d, x, y = gcd_extended(e, phi)
     return x % phi
-
-
-def gcd(a: int, b: int) -> int:
-    while a != 0 and b != 0:
-        if a > b:
-            a = a % b
-        else:
-            b = b % a
-    return a + b
-
-
-def is_prime(n: int) -> bool:
-    return n > 1 and all(n % i != 0 for i in range(2, int(n**0.5) + 1))
 
 
 def generate_keypair(p: int, q: int) -> Tuple[Tuple[int, int], Tuple[int, int]]:

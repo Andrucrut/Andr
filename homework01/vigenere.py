@@ -10,9 +10,9 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     """
 
     keyword *= len(plaintext) // len(keyword) + 1  # Мы подгоняем кол-во символов в ключе к кол-во символом в тексте
-    ciphertext = ''
+    ciphertext = ""
     for i, j in enumerate(plaintext):  # i = index  j=bukva
-        if (keyword[i] == 'a' or keyword[i] == 'A'):  # если у нас в ключе будет буква A, то закадируется также A
+        if (keyword[i] == "a" or keyword[i] == "A"):  # если у нас в ключе будет буква A, то закадируется также A
             ciphertext += j
         else:
             ciphertext += chr((ord(j) + ord(keyword[i])) % 26 + 65)  # сумму остаток от деления на 26 и прибовляем 65(для того чтобы не выходило из таблицы)
@@ -31,9 +31,9 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     """
 
     keyword *= len(ciphertext) // len(keyword) + 1
-    plaintext = ''
+    plaintext = ""
     for i, j in enumerate(ciphertext):
-        if (keyword[i] == 'a' or keyword[i] == 'A'):
+        if (keyword[i] == "a" or keyword[i] == "A"):
             plaintext += j
         else:
             plaintext += chr((ord(j) - ord(keyword[i])) % 26 + 65)

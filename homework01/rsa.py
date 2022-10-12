@@ -3,10 +3,26 @@ import typing as tp
 
 
 def is_prime(n: int) -> bool:
+        """
+    Tests to see if a number is prime.
+    >>> is_prime(2)
+    True
+    >>> is_prime(11)
+    True
+    >>> is_prime(8)
+    False
+    """
     return n > 1 and all(n % i != 0 for i in range(2, int(n**0.5) + 1))
 
 
 def gcd(a: int, b: int) -> int:
+    """
+    Euclid's algorithm for determining the greatest common divisor.
+    >>> gcd(12, 15)
+    3
+    >>> gcd(3, 7)
+    1
+    """
     while a != 0 and b != 0:
         if a > b:
             a = a % b
@@ -16,6 +32,12 @@ def gcd(a: int, b: int) -> int:
 
 
 def multiplicative_inverse(e: int, phi: int) -> int:
+     """
+    Euclid's extended algorithm for finding the multiplicative
+    inverse of two numbers.
+    >>> multiplicative_inverse(7, 40)
+    23
+    """
     def gcd_extended(a, b):
         if a == 0:
             return b, 0, 1

@@ -15,7 +15,6 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     ciphertext = ""
     for i, j in enumerate(plaintext):  # i = index  j=bukva
         if keyword[i] == "a" or keyword[i] == "A":
-          # если у нас в ключе будет буква A, то закадируется также A
             ciphertext += j
         else:
             ciphertext += chr(

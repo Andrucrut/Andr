@@ -44,7 +44,7 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
         else:
             plaintext += chr((ord(j) - ord(keyword[i])) % 26 + 65)
     return plaintext
-=======
+
 def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     """
     Encrypts plaintext using a Vigenere cipher.

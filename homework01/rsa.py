@@ -40,7 +40,6 @@ def multiplicative_inverse(e: int, phi: int) -> int:
     23
     """
 
-    # PUT YOUR CODE Here
     d = 0
     while True:
         if d * e % phi == 1:

@@ -14,7 +14,9 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
     ciphertext = ""  # новая буква
     for i in plaintext:  # i буква
         if ord(i) >= 65 and ord(i) <= 90:  # от A до Z
-            ciphertext = chr((((ord(i) - 65) + shift) % 26) + 65)  # %26 чтобы у нас послдний символ был тем что надо
+            ciphertext = chr(
+                (((ord(i) - 65) + shift) % 26) + 65
+            )  # %26 чтобы у нас послдний символ был тем что надо
             new_word.append(ciphertext)
         elif ord(i) >= 97 and ord(i) <= 122:  # проверка маленьких букв
             ciphertext = chr((((ord(i) - 97) + shift) % 26) + 97)
